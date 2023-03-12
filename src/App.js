@@ -8,7 +8,7 @@ export default function App() {
 
   return (
       <UserAuthContextProvider>
-        <Navbar />
+        {/* <Navbar /> */}
         <MainRoute />
         <BackToTop />
       </UserAuthContextProvider>

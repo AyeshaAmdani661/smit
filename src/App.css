@@ -2,7 +2,7 @@ body{
     overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -10,12 +10,12 @@ body{
 }
 
 ::-webkit-scrollbar-thumb {
-    background:rgb(3, 177, 196);
+    background:#6D6E71;
     border-radius: 3rem;
 }
 
 .to-top {
-    background: rgb(10, 168, 226);
+    background: #61B846;
     position: fixed;
     bottom: 16px;
     right: 32px;
@@ -32,20 +32,20 @@ body{
     z-index: 1;
 }
 
-.css-i4bv87-MuiSvgIcon-root {
+/* .css-i4bv87-MuiSvgIcon-root {
     font-size: 2.5rem !important;
-}
+} */
 
 .to-top.active {
     bottom: 32px;
     pointer-events: auto;
     opacity: 1;
     color: #fff;
-    background:rgb(10, 168, 226);
+    background:#61B846;
 }
 
 .to-top.active:hover {
-    background: rgb(10, 168, 226);
+    background: #61B846;
 }
 @media (max-width: 767px) {
     .to-top {
@@ -55,8 +55,27 @@ body{
       height: 40px;
       font-size: 22px;
     }
-    .css-i4bv87-MuiSvgIcon-root {
+    /* .css-i4bv87-MuiSvgIcon-root {
         font-size: 2rem !important;
-    }
+    } */
   }
   
+
+.text-green{
+    color: #61B846;
+}
+.text-blue{
+color: #024F9D;
+}
+.bg-green{
+    background: #61B846;
+}
+.bg-blue{
+background: #024F9D;
+}
+.text-grey{
+    color: #6D6E71;
+}
+.nav-link:hover{
+    color: #61B846;
+}

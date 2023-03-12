@@ -18,7 +18,7 @@ export default function Navbar() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
+
   const [type, setType] = useState();
 
   const { user } = useUserAuth();
@@ -39,7 +39,7 @@ export default function Navbar() {
       });
     });
   };
-  
+
   getUser()
     .then((typ) => {
       setType(typ)
@@ -60,244 +60,152 @@ export default function Navbar() {
   return (
     <div>
       <div className="bg-light mb-5">
-       <nav className="navbar navbar-expand-lg nav-bg fixed-top bg-light mb-5">
-       <div className="container-fluid">
-       <Link className="navbar-brand text-grey" to={"/home"}>
-           <p className="text-green m-0"  style={{ fontSize: "20px" }}>
-           SAYLANI WELFARE
-           </p>
-           <p className="text-blue m-0 d-flex justify-content-center"  style={{ fontSize: "10px",fontWeight:"800" }}>
-           ONLINE MARKET PLACE
+        <nav className="navbar navbar-expand-lg nav-bg fixed-top bg-light mb-5">
+          <div className="container-fluid">
+            <Link className="navbar-brand text-grey" to={"/home"}>
+              <p className="text-green m-0" style={{ fontSize: "20px" }}>
+                SAYLANI WELFARE
+              </p>
+              <p className="text-blue m-0 d-flex justify-content-center" style={{ fontSize: "10px", fontWeight: "800" }}>
+                ONLINE MARKET PLACE
 
-           </p>
-         </Link>
-         <div className="d-lg-none" onClick={handleShow}>
-           <MenuIcon style={{ color: "#6D6E71" }}></MenuIcon>
-       </div>
-       <div className="collapse navbar-collapse flex-grow-0" id="navbarText">
-        {
-          (type =="purchase")?
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-       <li className="nav-item">
-            <Link className="nav-link text-grey d-flex  justify-content-center flex-column" to={"/home"}>
-              <HomeIcon className="mx-2" ></HomeIcon>
-              Home
+              </p>
             </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-grey d-flex justify-content-center flex-column" to={"/"}>
-              <SmsIcon  className="mx-3"></SmsIcon>
-              Messages
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-grey d-flex justify-content-center flex-column" to={"/cart"}>
-              <ShoppingCartIcon className="mx-1"></ShoppingCartIcon>
-              Cart
-            </Link>
-            </li>
-            <li>
-            <Link className="nav-link text-grey d-flex justify-content-center flex-column" to={"/"}>
-              <PersonIcon className="mx-3"></PersonIcon>
-              Account
-            </Link>
-          </li>
-       </ul> :
-        
-       <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-       <li className="nav-item">
-            <Link className="nav-link text-grey d-flex  justify-content-center flex-column" to={"/home"}>
-              <HomeIcon className="mx-2" ></HomeIcon>
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-grey d-flex justify-content-center flex-column" to={"/addProduct"}>
-              <ControlPointIcon  className="mx-4"></ControlPointIcon>
-              
-              Add Items
-            </Link>
-          </li>
-            <li>
-            <Link className="nav-link text-grey d-flex justify-content-center flex-column" to={"/"}>
-              <PersonIcon className="mx-3"></PersonIcon>
-              Account
-            </Link>
-          </li>
-       </ul>
-}
-       </div>
-       </div>
-       </nav>
+            <div className="d-lg-none" onClick={handleShow}>
+              <MenuIcon style={{ color: "#6D6E71" }}></MenuIcon>
+            </div>
+            <div className="collapse navbar-collapse flex-grow-0" id="navbarText">
+              {
+                (type == "purchase") ?
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li className="nav-item">
+                      <Link className="nav-link text-grey d-flex  justify-content-center flex-column" to={"/home"}>
+                        <HomeIcon className="mx-2" ></HomeIcon>
+                        Home
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link text-grey d-flex justify-content-center flex-column" to={"/"}>
+                        <SmsIcon className="mx-3"></SmsIcon>
+                        Messages
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link text-grey d-flex justify-content-center flex-column" to={"/cart"}>
+                        <ShoppingCartIcon className="mx-1"></ShoppingCartIcon>
+                        Cart
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="nav-link text-grey d-flex justify-content-center flex-column" to={"/"}>
+                        <PersonIcon className="mx-3"></PersonIcon>
+                        Account
+                      </Link>
+                    </li>
+                  </ul> :
+
+                  <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <li className="nav-item">
+                      <Link className="nav-link text-grey d-flex  justify-content-center flex-column" to={"/home"}>
+                        <HomeIcon className="mx-2" ></HomeIcon>
+                        Home
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link text-grey d-flex justify-content-center flex-column" to={"/addProduct"}>
+                        <ControlPointIcon className="mx-4"></ControlPointIcon>
+
+                        Add Items
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="nav-link text-grey d-flex justify-content-center flex-column" to={"/"}>
+                        <PersonIcon className="mx-3"></PersonIcon>
+                        Account
+                      </Link>
+                    </li>
+                  </ul>
+              }
+            </div>
+          </div>
+        </nav>
       </div>
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        className="bg-light text-grey"
+      >
+        <Offcanvas.Header>
+          <Offcanvas.Title>
+            <Link className="navbar-brand text-grey" to={"/home"}>
+              <p className="text-green m-0" style={{ fontSize: "20px" }}>
+                SAYLANI WELFARE
+              </p>
+              <p className="text-blue m-0 d-flex justify-content-center" style={{ fontSize: "10px", fontWeight: "800" }}>
+                ONLINE MARKET PLACE
+
+              </p>
+            </Link>
+          </Offcanvas.Title>
+          <CloseIcon onClick={handleClose} />
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <div className="py-3">
+            {
+              (type == "purchase") ?
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+                  <li className="nav-item">
+                    <Link className="nav-link text-grey" to={"/home"} onClick={handleClose}>
+                      <HomeIcon className="mx-2" ></HomeIcon>
+                      Home
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link text-grey" to={"/"} onClick={handleClose}>
+                      <SmsIcon className="mx-2"></SmsIcon>
+                      Messages
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link text-grey" to={"/cart"} onClick={handleClose}>
+                      <ShoppingCartIcon className="mx-2"></ShoppingCartIcon>
+                      Cart
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="nav-link text-grey" to={"/"} onClick={handleClose}>
+                      <PersonIcon className="mx-2"></PersonIcon>
+                      Account
+                    </Link>
+                  </li>
+                </ul> :
+
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+                  <li className="nav-item">
+                    <Link className="nav-link text-grey" to={"/home"} onClick={handleClose}>
+                      <HomeIcon className="mx-2" ></HomeIcon>
+                      Home
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link className="nav-link text-grey" to={"/addProduct"} onClick={handleClose}>
+                      <ControlPointIcon className="mx-2"></ControlPointIcon>
+
+                      Add Items
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="nav-link text-grey" to={"/"} onClick={handleClose}>
+                      <PersonIcon className="mx-2"></PersonIcon>
+                      Account
+                    </Link>
+                  </li>
+                </ul>
+            }
+          </div>
+        </Offcanvas.Body>
+      </Offcanvas>
     </div>
-    // <div className="bg-light mb-5">
-    //   <nav className="navbar navbar-expand-lg nav-bg fixed-top bg-light mb-5">
-    //     <div className="container-fluid">
-    //       <Link className="navbar-brand text-grey" to={"/"}>
-    //         <img src={logo} className="logo" />
-    //         Navbar
-    //       </Link>
-    //       <div className="d-lg-none" onClick={handleShow}>
-    //         <MenuIcon style={{ color: "#6D6E71" }}></MenuIcon>
-    //       </div>
-    //       <div className="collapse navbar-collapse flex-grow-0" id="navbarText">
-    //         {!user ? (
-    //           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-    //             <li className="nav-item">
-    //               <Link className="nav-link text-grey" to={"/"}>
-    //                 Home
-    //               </Link>
-    //             </li>
-    //             <Link className="nav-link text-grey" to={"/about"}>
-    //               About
-    //             </Link>
-    //             <li className="nav-item">
-    //               <Link className="nav-link text-grey" to={"/addClass"}>
-    //                 Add Class
-    //               </Link>
-    //             </li>
-    //             <li className="nav-item">
-    //               <Link className="nav-link text-grey" to={"/signup"}>
-    //                 Signup
-    //               </Link>
-    //             </li>
-    //             <li className="nav-item">
-    //               <Link className="nav-link text-grey" to={"/signin"}>
-    //                 Login
-    //               </Link>
-    //             </li>
-    //           </ul>
-    //         ) : (
-    //           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-    //             <li className="nav-item">
-    //               <Link className="nav-link text-grey" to={"/"}>
-    //                 Home
-    //               </Link>
-    //             </li>
 
-    //             <li>
-    //               <Link className="nav-link text-grey" to={"/about"}>
-    //                 About
-    //               </Link>
-    //             </li>
-
-    //             <li className="nav-item">
-    //               <Link className="nav-link text-grey" to={"/addClass"}>
-    //                 Add Class
-    //               </Link>
-    //             </li>
-    //             <li className="nav-item">
-    //               <Link className="nav-link text-grey" to={"/crud"}>
-    //                 crud{" "}
-    //               </Link>
-    //             </li>
-    //             <li className="nav-item">
-    //               <div className="nav-link text-grey" onClick={handleLogout}>
-    //                 Logout
-    //               </div>
-    //             </li>
-    //           <li></li>
-    //           </ul>
-    //         )}
-    //       </div>
-    //     </div>
-    //   </nav>
-
-    //   <Offcanvas
-    //     show={show}
-    //     onHide={handleClose}
-    //     className="bg-light text-grey"
-    //   >
-    //     <Offcanvas.Header>
-    //       <Offcanvas.Title>
-    //         <img src={logo} className="logo" />
-    //         Navbar
-    //       </Offcanvas.Title>
-    //       <CloseIcon onClick={handleClose} />
-    //     </Offcanvas.Header>
-    //     <Offcanvas.Body>
-    //       <div className="py-3">
-    //         {!user ? (
-    //           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-    //             <li className="nav-item">
-    //               <Link
-    //                 className="nav-link text-grey"
-    //                 to={"/"}
-    //                 onClick={handleClose}
-    //               >
-    //                 Home
-    //               </Link>
-    //             </li>
-
-    //             <li>
-    //               <Link
-    //                 className="nav-link text-grey"
-    //                 to={"/about"}
-    //                 onClick={handleClose}
-    //               >
-    //                 About
-    //               </Link>
-    //             </li>
-
-    //             <li className="nav-item">
-    //               <Link className="nav-link text-grey" to={"/addClass"}>
-    //                 Add Class
-    //               </Link>
-    //             </li>
-
-    //             <li className="nav-item">
-    //               <Link
-    //                 className="nav-link text-grey"
-    //                 to={"/signup"}
-    //                 onClick={handleClose}
-    //               >
-    //                 Signup
-    //               </Link>
-    //             </li>
-    //             <li className="nav-item">
-    //               <Link
-    //                 className="nav-link text-grey"
-    //                 to={"/signin"}
-    //                 onClick={handleClose}
-    //               >
-    //                 Login
-    //               </Link>
-    //             </li>
-    //           </ul>
-    //         ) : (
-    //           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-    //             <li className="nav-item">
-    //               <Link
-    //                 className="nav-link text-grey"
-    //                 to={"/"}
-    //                 onClick={handleClose}
-    //               >
-    //                 Home
-    //               </Link>
-    //             </li>
-    //             <Link
-    //               className="nav-link text-grey"
-    //               to={"/about"}
-    //               onClick={handleClose}
-    //             >
-    //               About
-    //             </Link>
-    //             <li className="nav-item">
-    //               <Link className="nav-link text-grey" to={"/addClass"}>
-    //                 Add Class
-    //               </Link>
-    //             </li>
-    //             <li className="nav-item">
-    //               <div className="nav-link text-grey" onClick={handleLogout}>
-    //                 Logout
-    //               </div>
-    //             </li>
-    //           </ul>
-    //         )}
-    //       </div>
-    //     </Offcanvas.Body>
-    //   </Offcanvas>
-    // </div>
   );
 }

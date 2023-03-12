@@ -59,6 +59,7 @@ export default function AddProduct() {
         description
       });
       console.log("Product added successfully!");
+      swal("Congratulations!", "Your product added sucessfully!", "success");
       setPName("");
       setQuantity("");
       setImageUrl("");
